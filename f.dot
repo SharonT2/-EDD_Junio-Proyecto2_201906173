@@ -1,0 +1,61 @@
+digraph structs
+{
+rankdir="LR"
+label="Carnet: xxxxxx"
+node [shape=box];
+Head0 [label="Head: 0 : null"];
+Head1 [label="Head: 1 : null"];
+Head2 [label="Head: 2 : 32"];
+Head3 [label="Head: 3 : null"];
+Head4 [label="Head: 4 : null"];
+Head5 [label="Head: 5 : 35"];
+Head6 [label="Head: 6 : 36"];
+Head7 [label="Head: 7 : null"];
+Head8 [label="Head: 8 : 68"];
+Head9 [label="Head: 9 : 9"];
+Head10 [label="Head: 10 : 10"];
+Head11 [label="Head: 11 : null"];
+Head12 [label="Head: 12 : null"];
+Head13 [label="Head: 13 : null"];
+Head14 [label="Head: 14 : null"];
+Head15 [label="Head: 15 : 15"];
+Head16 [label="Head: 16 : null"];
+Head17 [label="Head: 17 : null"];
+Head18 [label="Head: 18 : null"];
+Head19 [label="Head: 19 : null"];
+Head20 [label="Head: 20 : null"];
+Head21 [label="Head: 21 : 21"];
+Head22 [label="Head: 22 : null"];
+Head23 [label="Head: 23 : null"];
+Head24 [label="Head: 24 : 54"];
+Head25 [label="Head: 25 : 85"];
+Head26 [label="Head: 26 : null"];
+Head27 [label="Head: 27 : 87"];
+Head28 [label="Head: 28 : null"];
+Head29 [label="Head: 29 : null"];
+
+Head0 -> Head1 -> Head2 -> Head3 -> Head4 -> Head5 -> Head6 -> Head7 -> Head8 -> Head9 -> Head10
+-> Head11 -> Head12 -> Head13 -> Head14 -> Head15 -> Head16 -> Head17 -> Head18 -> Head19 -> Head20
+-> Head21 -> Head22 -> Head23 -> Head24 -> Head25 -> Head26 -> Head27 -> Head28 -> Head29;
+
+{rank=same;Head0;Head1;Head2;Head3;Head4;Head5;Head6;Head7;Head8;Head9;Head10;Head11;Head12;Head13;
+Head14;Head15;Head16;Head17;Head18;Head19;Head20;Head21;Head22;Head23;Head24;Head25;Head26;Head27;Head28;Head29;};
+
+Head5 -> List0;
+List0 [label=" List: 35"];
+
+List0 -> List1;
+List1 [label=" List: 35"];
+
+Head8 -> List2;
+List2 [label=" List: 68"];
+
+List2 -> List3;
+List3 [label=" List: 68"];
+
+Head24 -> List4;
+List4 [label=" List: 54"];
+
+Head25 -> List5;
+List5 [label=" List: 25"];
+}
