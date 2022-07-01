@@ -63,16 +63,16 @@ class ListaCir{//Clase de la lista principal, la ciruular
 
     insertarPrincipal(dato){
         console.log("-------------------------------")
-        var coor = dato%30;
+        var ultimoCaracter = dato%20;//ultimo caracter simboliza la cooredenada
         //var ultimoCaracter = coor.charAt(coor.length - 1)
-        var ultimoCaracter;
-        coor = coor.toString()
-        ultimoCaracter = coor.charAt(coor.length - 1)
+    //    var ultimoCaracter;
+    //    coor = coor.toString()
+        //-----ultimoCaracter = coor.charAt(coor.length - 1)
         //ultimoCaracter = ultimoCaracter.toString()
-        console.log("·########")
-        console.log("ultimoaaaaaaa " + ultimoCaracter)
+    //    console.log("·########")
+    //    console.log("ultimoaaaaaaa " + ultimoCaracter)
             //var coor2 = "123"
-        console.log("Valor booleano")
+    //    console.log("Valor booleano")
         console.log(this.verRepetido(ultimoCaracter, dato))//le mandaré coordenada(que será la cabeza)
         //console.log(this.verRepetido(dato, coor))
         if(this.verRepetido(ultimoCaracter, dato) == false){
@@ -188,23 +188,22 @@ class ListaCir{//Clase de la lista principal, la ciruular
                         if(confir == false){
                             console.log("ACUMULADOR " + acumulador)
                             if(auxLibro.libro != undefined){
-                                acumulador += "N" + num + " -> " + auxLibro.libro + ListaCir.contU;
+                                acumulador += "N" + num + " -> " + auxLibro.libro ; //+ ListaCir.contU
                                 auxLibro = auxLibro.next
                                 confir = true
-                                ListaCir.contU++
+                            //     ListaCir.contU++
                             }
                         }else{
                             console.log("ACUMULADOR " + acumulador)
                             if(auxLibro.libro != undefined){
-                                acumulador +=  " -> " + auxLibro.libro  +
-                                ListaCir.contU;
+                                acumulador +=  " -> " + auxLibro.libro ;////+ ListaCir.contU
                                 auxLibro = auxLibro.next
-                                ListaCir.contU++
+                            //    ListaCir.contU++
                             }
                         }
                         //auxLibro = auxLibro.next
                     }
-                    this.contU++
+                    //this.contU++
                     acumulador += ";\n"
                     console.log("================")
                     console.log("*ACUMULADOR " + acumulador + "\n")
@@ -319,16 +318,6 @@ listalistas.insertarUs(16);
 listalistas.insertarUs(17);
 listalistas.insertarUs(18);
 listalistas.insertarUs(19);
-listalistas.insertarUs(20);
-listalistas.insertarUs(21);
-listalistas.insertarUs(22);
-listalistas.insertarUs(23);
-listalistas.insertarUs(24);
-listalistas.insertarUs(25);
-listalistas.insertarUs(26);
-listalistas.insertarUs(27);
-listalistas.insertarUs(28);
-listalistas.insertarUs(29);
 
 /*
 
@@ -342,8 +331,47 @@ listalistas.insertarLibroCir(6,"x")
 
 */
 listalistas.insertarPrincipal(4163);
-listalistas.insertarPrincipal(4163);
-listalistas.insertarPrincipal(4163);
+listalistas.insertarPrincipal(8305);
+listalistas.insertarPrincipal(3064);
+listalistas.insertarPrincipal(8148);
+listalistas.insertarPrincipal(8877);
+listalistas.insertarPrincipal(5988);
+listalistas.insertarPrincipal(8238);
+listalistas.insertarPrincipal(8133);
+listalistas.insertarPrincipal(5231);
+listalistas.insertarPrincipal(6808);
+listalistas.insertarPrincipal(3366);
+listalistas.insertarPrincipal(9577);
+listalistas.insertarPrincipal(7048);
+listalistas.insertarPrincipal(6606);
+listalistas.insertarPrincipal(9737);
+listalistas.insertarPrincipal(5214);
+listalistas.insertarPrincipal(6303);
+listalistas.insertarPrincipal(1050);
+listalistas.insertarPrincipal(2552);
+listalistas.insertarPrincipal(7163);
+listalistas.insertarPrincipal(4789);
+listalistas.insertarPrincipal(6467);
+listalistas.insertarPrincipal(3159);
+listalistas.insertarPrincipal(6764);
+listalistas.insertarPrincipal(7964);
+listalistas.insertarPrincipal(9122);
+listalistas.insertarPrincipal(3732);
+listalistas.insertarPrincipal(9635);
+listalistas.insertarPrincipal(2524);
+listalistas.insertarPrincipal(4248);
+listalistas.insertarPrincipal(7558);
+listalistas.insertarPrincipal(8688);
+listalistas.insertarPrincipal(9439);
+listalistas.insertarPrincipal(3330);
+listalistas.insertarPrincipal(6946);
+listalistas.insertarPrincipal(7023);
+listalistas.insertarPrincipal(2380);
+listalistas.insertarPrincipal(4373);
+listalistas.insertarPrincipal(5211);
+listalistas.insertarPrincipal(4093);
+listalistas.insertarPrincipal(7132);
+listalistas.insertarPrincipal(8058);
 
 //console.log(listalistas.tarea())
 listalistas.graficarCir();

@@ -12,10 +12,10 @@
     <div id="titulo">
         <h1>MOVIECATS</h1>
     </div>
-    <input type="submit" value="Home" id="Home" style="cursor: pointer" onclick="uno.limpiar2()"></input>
+    <input type="submit" value="Home" id="Home" style="cursor: pointer" onclick="principal.limpiar2()"></input>
     <div id="tez">
-        <p>Home principal, ingrese sus datos para poder realizar las funcionalidades de administrador o cliente</p>
-        <input type="submit" value="Tops" id="document3" style="cursor: pointer" onclick=""></input>
+    <!--<p>Home principal, ingrese sus datos para poder realizar las funcionalidades de administrador o cliente</p>-->
+        <!--<input type="submit" value="Tops" id="document3" style="cursor: pointer" onclick=""></input>---->
     </div>
 
     <!--<div id="titulo">
@@ -26,22 +26,23 @@
         <!--BOTOON PARA CARGAR ARCHIVOS<div class="file-select" id="src-file1" >
             <input type="file" name="document" id="document" style="cursor: pointer"></input>
         </div>---->
-        <input type="button" value="Iniciar Sesión" id="document2" style="cursor: pointer" onclick="uno.mostrarLog()"></input>
+        <input type="button" value="Iniciar Sesión" id="document2" style="cursor: pointer" onclick="principal.mostrarLog()"></input>
         <!-- CARGA MASIVA -->
     </div>
 
-
+    <div id="caja"; style="display:none"><textarea cols="140" rows="35", id="cajaE"; style="display:none">Área de texto!</textarea></div>
     <div id="botones2"; style="display:none">
-        <input type="file" value="CargarLibros" name="document" id="document" style="cursor: pointer"><b>CargarLibros</b></input>
-        <input type="file" name="CargaAutores" id="carga2" style="cursor: pointer"><b>CargarAutores</b></input>
-        <input type="file" name="Carga3" id="carga3" style="cursor: pointer"></input>
-        <input type="button" value="Libros Fantasía" id="ortogonal" style="cursor: pointer" onclick="uno.divOrto()"></input>
-        <input type="button" value="Libros Thriller" id="dispersa" style="cursor: pointer" onclick="uno.divDis()"></input>
-        <input type="button" value="Libros FantasíaImg" id="ortogonalx" style="cursor: pointer" onclick="uno.divOrtox()"></input>
-        <input type="button" value="Libros ThrillerImg" id="dispersay" style="cursor: pointer" onclick="uno.divDisy()"></input>
-        <input type="button" value="Autores" id="autores" style="cursor: pointer" onclick="uno.divTree()"></input>
-        <input type="button" value="Usuarios" id="Usuarios" style="cursor: pointer" onclick="uno.divCir()"></input>
-        <input type="button" value="Limpiar" id="limpiar" style="cursor: pointer" onclick="uno.limpiar()"></input>
+        <input type="file" value="CargarLibros" name="document" id="document" style="cursor: pointer"><b>Peliculas</b></input>
+        <input type="file" name="CargaAutores" id="carga2" style="cursor: pointer"><b>Clientes</b></input>
+        <input type="file" name="Carga3" id="carga3" style="cursor: pointer"><b>Actores</b></input>
+        <input type="file" name="Carga4" id="carga4" style="cursor: pointer"><b>Categori</b></input>
+        <input type="button" value="Libros Fantasía" id="ortogonal" style="cursor: pointer" onclick="principal.divOrto()"></input>
+        <input type="button" value="Libros Thriller" id="dispersa" style="cursor: pointer" onclick="principal.divDis()"></input>
+        <input type="button" value="Libros FantasíaImg" id="ortogonalx" style="cursor: pointer" onclick="principal.divOrtox()"></input>
+        <input type="button" value="Libros ThrillerImg" id="dispersay" style="cursor: pointer" onclick="principal.divDisy()"></input>
+        <input type="button" value="Autores" id="autores" style="cursor: pointer" onclick="principal.divTree()"></input>
+        <input type="button" value="Usuarios" id="Usuarios" style="cursor: pointer" onclick="principal.divCir()"></input>
+        <input type="button" value="Limpiar" id="limpiar" style="cursor: pointer" onclick="principal.limpiar()"></input>
     </div>
     <!---<div id="Entrada">
         <h2>Archivo de entrada</h2>
@@ -53,20 +54,20 @@
         <textarea cols="80" rows="30" wrap="hard" readonly="no"></textarea>
     </div>---->
 
-
     <!----<form method="get" action="http://localhost:5000/docu" target="_blank">
     <input type="submit" value=" Documentacion " id="document4" style="cursor: pointer"></input>
     </form>---->
 
     <!--LOGIN--->
-    <div name="Login" id = "Login"; style="display:none">
+    <div name="Login" id = "Login"; style="display:block">
         <form id="formularioLogin">
-            <p id="titulolog">Inicia sesión</p>
+            <p id="titulolog">Inicia sesión 🎞️</p>
             <label for="nombre" >Usuario:</label>
             <input type="text" id="usuarioA"  placeholder="Escriba su user"></input>     
             <label for="contraseña"> contraseña: </label>
             <input type="password" id="passwordA" placeholder="Escriba su contraseña"></input>
-            <input type="button"  id="inicial" value="Iniciar SesiónA" style="cursor: pointer" onclick="uno.admInicio()"></input>
+            <input type="button"  id="inicial" value="Iniciar SesiónA" style="cursor: pointer" onclick="principal.admInicio()"></input>
+            <label id="admin">Administrador<input type="checkbox" id="check" name="languajes" checked value="html"></input></label>  <!---checked para qeu se marque uno por defecto-->
         </form>
     </div>
 
@@ -80,10 +81,10 @@
     <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
     
     <!--<script type="text/javascript" src="./sharonIns.js"></script>---->
-    <script type="text/javascript" src="./Ortogonal.js"></script>
-    <script type="text/javascript" src="./dispersaS.js"></script>
-    <script type="text/javascript" src="./arbolBBXFUN.js"></script>
-    <script type="text/javascript" src="./ListaListasCir.js"></script>
-    <script type="text/javascript" src="./biblio.js"></script><!--Este será el principal--> 
+    <script type="text/javascript" src="./.js"></script>
+    <script type="text/javascript" src="./.js"></script>
+    <script type="text/javascript" src="./.js"></script>
+    <script type="text/javascript" src="./.js"></script>
+    <script type="text/javascript" src="./principal.js"></script><!--Este será el principal--> 
 </body>
 </html>

@@ -77,48 +77,63 @@ h2{
 
 
 #document2{ /* Botón para poder iniciar sesión */
-    margin-top: 20px;
-    margin-left: 1420px;
+    margin-top: 2px;
+    margin-left: 1000px;
     width: 300px;
     height: 40px;
     background-color: #1a3741;
     color: white;
 }
 
-#document{
+
+#document{/* Botón para carga 1 de películas las cuales serán almacenadas en un árbol AVL*/
     margin-top: 10px;
-    margin-left: 1420px;
-    width: 300px;
+    margin-left: 1150px;
+    width: 108px;
     height: 40px;
     background-color: #2f3233;
     color: white;
 }
-#carga2{
-    margin-top: 10px;
-    margin-left: 1420px;
-    width: 300px;
+#carga2{/* Botón para carga 2 de clientes las cuales se almacenarán en una lista simple.*/
+    margin-top: 1px;
+    margin-left: 1150px;
+    width: 108px;
     height: 40px;
     background-color: #2f3233;
     color: white;
 }
 
-#carga3{
-    margin-top: 10px;
-    margin-left: 1420px;
-    width: 300px;
+#carga3{/*de Actores icónicos de distintas películas, estos serán almacenados en un árbol binario*/
+    margin-top: 1px;
+    margin-left: 1150px;
+    width: 108px;
     height: 40px;
     background-color: #2f3233;
     color: white;
 }
 
-#document3{
+#carga4{/*Categorías las cuales serán almacenadas en una tabla Hash.*/
+    margin-top: 1px;
+    margin-left: 1150px;
+    width: 108px;
+    height: 40px;
+    background-color: #2f3233;
+    color: white;
+}
+
+#botones2{
+    margin-top: -500px;
+}
+
+#document3{/* Botón para topos, este boton es del proyecto pasados*/
     margin-top: 10px;
-    margin-left: 1420px;
+    margin-left: 1000px;
     width: 300px;
     height: 40px;
     background-color: #11333e;
     color: white;
 }
+
 
 #document4{
     margin-top: 20px;
@@ -204,15 +219,24 @@ h2{
 }
 
 form{
-    border: 7px solid rgb(63, 56, 49); /*agregando un borde de color y grosor*/
+    border: 7px solid rgb(17, 21, 37); /*agregando un borde de color y grosor*/
     padding: 20px;
     margin-left: auto;/*centrando */
     margin-right: auto; /*centrando */
     background: rgb(204, 204, 204);/*color al fondo del formulario */
     margin-top: 20px; /*margen de arriba */
     border-radius: 5%; /*agregar un borde más redondo(en el 100% se convierte en un circulo) */
-    height: 300px;
+    height: 380px;
     width: 400px;
+}
+
+#Login{
+    margin-top: -150px;
+}
+
+#admin{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #titulolog{
@@ -281,6 +305,12 @@ p{
     background-image: url(libro.jpg);  
 }
 
+#caja{
+    margin-top: -100px;
+    width: 1000px;
+    height: 500px;
+    background: rgb(142, 97, 164);
+}
 
 
 
