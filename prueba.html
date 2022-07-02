@@ -5,13 +5,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TAREA 5</title>
+        <link type="text/css" rel="stylesheet" href="estiloPrueba.css">
     </head>
     <body>
-        <h1>tabla hash</h1>
         <div id="grafica"></div>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>   
         <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
-        <script type="text/javascript" src="./tablaHa.js"> </script>
+        
+        <button type="button" value="descargarP" id="descargarP"; style="cursor: pointer;" onclick="descargarImagen()">Descargar</button>
+        <script type="text/javascript" src="./treeAVL.js"> </script>
+        <script src="https://superal.github.io/canvas2image/canvas2image.js "></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </body>
+
+    <script>
+    function descargarImagen() {
+                html2canvas($('#grafica')[0]).then(function (canvas) {
+                    return Canvas2Image.saveAsPNG(canvas);
+                    $(".response").append(canvas);
+                });
+            }
+    </script>
 </html>

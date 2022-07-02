@@ -1,34 +1,31 @@
-digraph G{
-node[shape=record]
-edge[color="green"]
-node6 [label = "  sharonramonlili-1|b2764f961511c2dc568678ec46ddc56055c5766ba29e893807a34f439dcf19e4  "]; 
-node6 -> node8
-node6 -> node7
-node7 [label = "  sharonramon|f5f0e3bfe92e6e4f75204f826f904d38ee3bef25fae70a070332b34fd0701e69  "]; 
-node7 -> node2
-node7 -> node1
-node1 [label = "  sharon|56e1239485139d3d0564c10a8cb8e7dbb6c75b2d744d49073d07c4208f7b7941  "]; 
-node2 [label = "  ramon|e27622e8321da74e6eafb1cee8e7804200cb536ef606173c0376d5f8c470ceaf  "]; 
-node8 [label = "  lili-1|7b6dfbcb327cb52488a8fbf814c067ff3f3957ce02ade2b19fa1ea6fa2809ee4  "]; 
-node8 -> node5
-node8 -> node4
-node4 [label = "  lili|6c1ccd1f20742182387027bb4b72c4bfe4ca7e9247af5e7c0f1f8ce0f236724e  "]; 
-node5 [label = "  -1|1bad6b8cf97131fceab8543e81f7757195fbb1d36b376ee994ad1cf17699c464  "]; 
-}
-digraph G{
-node[shape=record]
-edge[color="green"]
-node6 [label = "  sharonramonlili-1|b2764f961511c2dc568678ec46ddc56055c5766ba29e893807a34f439dcf19e4  "]; 
-node6 -> node8
-node6 -> node7
-node7 [label = "  sharonramon|f5f0e3bfe92e6e4f75204f826f904d38ee3bef25fae70a070332b34fd0701e69  "]; 
-node7 -> node2
-node7 -> node1
-node1 [label = "  sharon|56e1239485139d3d0564c10a8cb8e7dbb6c75b2d744d49073d07c4208f7b7941  "]; 
-node2 [label = "  ramon|e27622e8321da74e6eafb1cee8e7804200cb536ef606173c0376d5f8c470ceaf  "]; 
-node8 [label = "  lili-1|7b6dfbcb327cb52488a8fbf814c067ff3f3957ce02ade2b19fa1ea6fa2809ee4  "]; 
-node8 -> node5
-node8 -> node4
-node4 [label = "  lili|6c1ccd1f20742182387027bb4b72c4bfe4ca7e9247af5e7c0f1f8ce0f236724e  "]; 
-node5 [label = "  -1|1bad6b8cf97131fceab8543e81f7757195fbb1d36b376ee994ad1cf17699c464  "]; 
+digraph G { rankdir=SH; node [shape = record, style=filled, fillcolor=khaki, color=pink];
+node5911989416409 [ label ="<C0>|5911989416409|<C1>"];
+node1807852273567 [ label ="<C0>|1807852273567|<C1>"];
+node1785865534047 [ label ="<C0>|1785865534047|<C1>"];
+node1059706333876 [ label ="1059706333876"];
+node1785865534047:C0->node1059706333876;
+node1807852273567:C0->node1785865534047;
+node3377513707599 [ label ="<C0>|3377513707599|<C1>"];
+node2083524375477 [ label ="2083524375477"];
+node3377513707599:C0->node2083524375477;
+node4088137115218 [ label ="<C0>|4088137115218|<C1>"];
+node5879734914078 [ label ="5879734914078"];
+node4088137115218:C1->node5879734914078;
+node3377513707599:C1->node4088137115218;
+node1807852273567:C1->node3377513707599;
+node5911989416409:C0->node1807852273567;
+node6556666538717 [ label ="<C0>|6556666538717|<C1>"];
+node6456106378318 [ label ="<C0>|6456106378318|<C1>"];
+node6059242389901 [ label ="6059242389901"];
+node6456106378318:C0->node6059242389901;
+node6556666538717:C0->node6456106378318;
+node7234003922193 [ label ="<C0>|7234003922193|<C1>"];
+node7018352391377 [ label ="7018352391377"];
+node7234003922193:C0->node7018352391377;
+node9833425323037 [ label ="<C0>|9833425323037|<C1>"];
+node7667255758134 [ label ="7667255758134"];
+node9833425323037:C0->node7667255758134;
+node7234003922193:C1->node9833425323037;
+node6556666538717:C1->node7234003922193;
+node5911989416409:C1->node6556666538717;
 }

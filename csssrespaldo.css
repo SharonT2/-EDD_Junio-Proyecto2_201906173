@@ -1,6 +1,6 @@
 body{
     background-color: rgb(180, 185, 185);
-    background-image: url(fondo.jpg);
+    /*background-image: url(fondo.jpg);*/
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -325,9 +325,9 @@ p{
 
 
 #caja{
-    margin-top: 5px;
-    width: 1050px;
-    height: 500px;
+    margin-top: 100px;
+    width: 1000px;
+    height: 400px;
     background: rgb(226, 215, 232);
     overflow: auto;
     margin-left: 150px;
@@ -347,6 +347,5 @@ p{
     background: rgb(226, 215, 232);
     overflow: auto;
     margin-left: 150px;
+    
 }
-
-

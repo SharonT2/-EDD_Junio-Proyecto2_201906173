@@ -1,0 +1,32 @@
+<!--Agregado para poder indicarle qeu es archivo statico-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+    <link type="text/css" rel="stylesheet" href="estilo.css"> <!--Modificación para que pudera encontrar el archivo css-->
+</head>
+<body>
+    <div id="caja"; style="display:block"></div>
+    <button type="button" value="descargarP" id="descargarP"; style="cursor: pointer;" onclick="descargarImagen()">Descargar</button>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>   
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+
+    <script src="https://superal.github.io/canvas2image/canvas2image.js "></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="./sharonIns.js"></script>---->
+</body>
+<script>
+    function descargarImagen() {
+        html2canvas($('#caja')[0]).then(function (canvas) {
+            return Canvas2Image.saveAsPNG(canvas);
+            $(".response").append(canvas);
+        });
+        }
+</script>
+</html>

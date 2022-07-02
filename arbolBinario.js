@@ -1,29 +1,35 @@
 class NodoTreeBB{
-    constructor(valor) {//constructor de la clase NodoTreeBB
-        this.valor = valor;
+    constructor(valor, nombre_actor, correo, descripcion) {//constructor de la clase NodoTreeBB
+        this.valor = valor;//dni
+        this.nombre_actor = nombre_actor;
+        this.correo =  correo;
+        this.descripcion = descripcion;
         this.left = null;
         this.right = null;
     }
 
-    insertDataNTree(data){//insertar datos(método a llmar, este es el principal)
+    insertDataNTree(data, nombre_actor, correo, descripcion){//insertar datos(método a llmar, este es el principal)
         if(data < this.valor){
             if(this.left == null){
-                this.left = new NodoTreeBB(data)
-                console.log(data)
+                this.left = new NodoTreeBB(data, nombre_actor, correo, descripcion)
+                console.log(data, nombre_actor, correo, descripcion)
             }else{
-                this.left.insertDataNTree(data)
-                console.log(data)
+                this.left.insertDataNTree(data, nombre_actor, correo, descripcion)
+                console.log(data, nombre_actor, correo, descripcion)
             }
         }else if (data > this.valor){
             if(this.right == null){
-                this.right = new NodoTreeBB(data)
-                console.log(data)
+                this.right = new NodoTreeBB(data, nombre_actor, correo, descripcion)
+                console.log(data, nombre_actor, correo, descripcion)
             }else{
-                this.right.insertDataNTree(data)
-                console.log(data)
+                this.right.insertDataNTree(data, nombre_actor, correo, descripcion)
+                console.log(data, nombre_actor, correo, descripcion)
             }
         }else{
             this.valor = data
+            this.nombre_actor = nombre_actor;
+            this.correo =  correo;
+            this.descripcion = descripcion;
         }
     }
 
@@ -35,13 +41,13 @@ class NodoTreeBB{
                 if(this.left == null){
                     return null
                 }else{
-                    return this.left.search(data);
+                    return this.left.search(data, nombre_actor, correo, descripcion);
                 }
             }else if(data > this.valor.data){
                 if(this.right == null){
                     return null
                 }else{
-                    return this.right.search(data)
+                    return this.right.search(data, nombre_actor, correo, descripcion)
                 }
             }
         }
@@ -52,8 +58,8 @@ class NodoTreeBB{
         var estyle ="digraph G { rankdir=SH; node [shape = record, style=filled, fillcolor=seashell2, color=pink];\n";
         estyle += this.exploreTree();
         estyle += "}\n";
-        this.generarImagen(estyle);
         console.log(estyle)
+        this.generarImagen(estyle);
         return estyle;
     }
 
@@ -61,9 +67,9 @@ class NodoTreeBB{
         var content = ""
         if (this.left == null && this.right == null)
             //var procesado = texto
-            content += "node"  + this.valor + " [ label =\"" + this.valor + "\"];\n";
+            content += "node"  + this.valor + " [ label =\"" + this.nombre_actor + "\"];\n";
         else
-            content += "node" + this.valor + " [ label =\"<C0>|"  + this.valor  + "|<C1>\"];\n";
+            content += "node" + this.valor + " [ label =\"<C0>|"  + this.nombre_actor  + "|<C1>\"];\n";
         if (this.left != null){
             content += this.left.exploreTree() + "node" + this.valor + ":C0->node" + this.left.valor + ";\n";
         }
@@ -74,9 +80,8 @@ class NodoTreeBB{
     }
 
     generarImagen(codigodot){
-        d3.select("#grafica").graphviz()
-            .width(3000)
-            .height(1500)
+        d3.select("#caja").graphviz()
+            .zoom(false)
             .renderDot(codigodot)
     }
 }
@@ -87,15 +92,15 @@ class arbolBB{
     }
     insert(dato){
         if (this.root == null){
-            this.root = new NodoTreeBB(dato);
-            console.log(dato)
+            this.root = new NodoTreeBB(data);
+            console.log(data)
         }else{
             this.root.insert(dato);
             console.log(dato)
         }
     }
     search(dato){
-        return this.root.search(dato);
+        return this.root.search(data);
     }
     
     graph(){
@@ -104,8 +109,9 @@ class arbolBB{
 
     
 }
+/*esto quite
 var nodoTreeBB = new NodoTreeBB()
-var arbol = new arbolBB()
+var arbol = new arbolBB() */
 
 //nodoTreeBB.insert(3)
 //nodoTreeBB.insert(8)
@@ -116,44 +122,11 @@ var arbol = new arbolBB()
 //nodoTreeBB.insert(7)
 //nodoTreeBB.insert(5)
 
-
-nodoTreeBB.insertDataNTree(1877)
-nodoTreeBB.insertDataNTree(9570)
-nodoTreeBB.insertDataNTree(5683)
-nodoTreeBB.insertDataNTree(1877)
-nodoTreeBB.insertDataNTree(6812)
-nodoTreeBB.insertDataNTree(4383)
-nodoTreeBB.insertDataNTree(5637)
-nodoTreeBB.insertDataNTree(7821)
-nodoTreeBB.insertDataNTree(7957)
-nodoTreeBB.insertDataNTree(769)
-nodoTreeBB.insertDataNTree(7434)
-nodoTreeBB.insertDataNTree(3222)
-nodoTreeBB.insertDataNTree(8440)
-nodoTreeBB.insertDataNTree(9609)
-nodoTreeBB.insertDataNTree(5769)
-nodoTreeBB.insertDataNTree(6501)
-nodoTreeBB.insertDataNTree(8476)
-nodoTreeBB.insertDataNTree(4144)
-nodoTreeBB.insertDataNTree(629)
-nodoTreeBB.insertDataNTree(4412)
-nodoTreeBB.insertDataNTree(2483)
-nodoTreeBB.insertDataNTree(754)
-nodoTreeBB.insertDataNTree(5867)
-nodoTreeBB.insertDataNTree(265)
-nodoTreeBB.insertDataNTree(4990)
-nodoTreeBB.insertDataNTree(8082)
-nodoTreeBB.insertDataNTree(8129)
-nodoTreeBB.insertDataNTree(6679)
-nodoTreeBB.insertDataNTree(8057)
-nodoTreeBB.insertDataNTree(3218)
-nodoTreeBB.insertDataNTree(8278)
-nodoTreeBB.insertDataNTree(6350)
-nodoTreeBB.insertDataNTree(2795)
-nodoTreeBB.insertDataNTree(6586)
-nodoTreeBB.insertDataNTree(1775)
-nodoTreeBB.insertDataNTree(367)
-nodoTreeBB.graphTree()
+/*ESTO QUITÉ
+nodoTreeBB.insertDataNTree("1877", "nombre1", "corr3eo1", "descripcion1")
+nodoTreeBB.insertDataNTree("18777", "nombre2", "corr3eo2", "descripcion2")
+nodoTreeBB.insertDataNTree("18777", "nombre3", "corr3eo3", "descripcion3")
+nodoTreeBB.graphTree()*/
 //-------------
 //-nodoTreeBB.insertDataNTree("Sharon Tagual")
 //-nodoTreeBB.insertDataNTree("Ander Porón")

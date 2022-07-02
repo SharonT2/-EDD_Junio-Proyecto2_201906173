@@ -1,18 +1,33 @@
 class Principal{
-
+    static estruct1
+    static estruct2
+    static estruct3
+    static estruct3x
+    static estruct4
     mostrarLog(){
+        document.getElementById("titulo").style.display = "block"//se mostrarán los botones para cargar archivos
+        //document.getElementById("homeb").style.display = "block"//se mostrarán los botones para cargar archivos
+        document.getElementById("document2").style.display = "none"
+        document.getElementById("botones2").style.display = "none"//se mostrarán los botones para cargar archivos
+        document.getElementById("caja").style.display = "none"
         document.getElementById("Login").style.display = "block"
         document.getElementById("prueba1").style.display = "none"
-        document.getElementById("tez").style.display = "none"
+        //document.getElementById("tez").style.display = "none"
+        document.getElementById("descargarP").style.display = "none"//descargar
+        document.getElementById("cambio1").style.display = "none"
+        document.getElementById("cambio2").style.display = "none"
+        document.getElementById("cambio3").style.display = "none"
+        document.getElementById("cambio4").style.display = "none"
+
     }
 
     ocultarLog(){
         document.getElementById("Login").style.display = "none"
     }
 
-    limpiar2(){
+    limpiar2(){//titulo
         document.getElementById("botones2").style.display = "none"//desaparecen los botones de carga masiva
-        document.getElementById("document2").style.display = "block"//aparece el iniciar sesión de nuevo
+        document.getElementById("document2").style.display = "none"//aparece el iniciar sesión de nuevo
     }
 
     admInicio(){
@@ -37,14 +52,25 @@ class Principal{
 
     
     paginaAdmin(){//ocultando y mostrando cosas para el admin
-        document.getElementById("document2").style.display = "none"
+        
+        //document.getElementById("titulo").style.display = "block"//se mostrarán los botones para cargar archivos
+        //document.getElementById("homeb").style.display = "none"//se mostrarán los botones para cargar archivos
+
         document.getElementById("botones2").style.display = "block"//se mostrarán los botones para cargar archivos
+        document.getElementById("document2").style.display = "block"
+        //document.getElementById("descargar").style.display = "block"//descargar
         document.getElementById("caja").style.display = "block"
-        document.getElementById("cajaE").style.display = "block"
+        document.getElementById("descargarP").style.display = "block"
+        document.getElementById("cambio1").style.display = "block"
+        document.getElementById("cambio2").style.display = "block"
+        document.getElementById("cambio3").style.display = "block"
+        document.getElementById("cambio4").style.display = "block"
+        //document.getElementById("cajaE").style.display = "block"
         //document.getElementById("document2").style.display = "block"
     }
 
-    cargarArchivo(x){//Cargando libros
+    cargarArchivo1Pelis(x){//Cargando peliculas
+        Principal.estruct1 = new treeAVL();
         var documento = x.target.files[0];
         if (!documento) {
             return;
@@ -54,22 +80,145 @@ class Principal{
             let contenido = x.target.result;
             const object = JSON.parse(contenido);
             for (const key in object) {
-                let libros = object[key];
+                let peliculas = object[key];
                 console.log("----------------------------------------------")
-                //console.log("fila: " +  + " columna: "+  +" tres: " + )
-                if( libros.categoria == "Fantasia"){
-                    Biblio.mat1.insertOrtogonal(dos, uno, tres);
-                }
-                if( libros.categoria == "Thriller"){
-                    Biblio.mat2.insertDispersa(dos, uno, tres);
-                }
-                console.log(libros.isbn + " " + libros.nombre_autor + " " + libros.nombre_libro + " " + libros.cantidad + " " + libros.fila + " " + libros.columna + " " + libros.paginas + " " + libros.categoria)
+                console.log(peliculas.id_pelicula + " " + peliculas.nombre_pelicula + " " + peliculas.descripcion + " " + peliculas.puntuacion_star + " " + peliculas.precion_Q)
+                Principal.estruct1.root = Principal.estruct1.insert(Principal.estruct1.root, peliculas.id_pelicula, peliculas.nombre_pelicula);
             }
-            grafoMatrizUno();
+            grafoAvlUno();
         }
         lectura.readAsText(documento);
     }
+    cargarArchivo2Clientes(x){//Cargando clientes
+        /*const lista = new listaSimple();
+console.log(lista);//Para ver cómo está la lista
+
+lista.addData(12);*/
+        Principal.estruct2 = new listaSimple();//cambiar
+        var documento = x.target.files[0];
+        if (!documento) {
+            return;
+        }
+        let lectura = new FileReader();
+        lectura.onload = function(x) {
+            let contenido = x.target.result;
+            const object = JSON.parse(contenido);
+            for (const key in object) {
+                let clientes = object[key];
+                console.log("----------------------------------------------")
+                console.log(clientes.dpi  + " " + clientes.nombre_completo  + " " + clientes.nombre_usuario  + " " + clientes.correo  + " " + clientes.contrasenia  + " " + clientes.telefono);
+                Principal.estruct2.addData(clientes.dpi, clientes.nombre_completo, clientes.nombre_usuario, clientes.correo, clientes.contrasenia, clientes.telefono);
+            }
+            grafoListaDos();
+        }
+        lectura.readAsText(documento);
+    }
+
+
+    cargarArchivo3Actores(x){//Cargando actores
+        Principal.estruct3 = new NodoTreeBB();//cambiar
+        var documento = x.target.files[0];
+        if (!documento) {
+            return;
+        }
+        let lectura = new FileReader();
+        lectura.onload = function(x) {
+            let contenido = x.target.result;
+            const object = JSON.parse(contenido);
+            for (const key in object) {
+                let actores = object[key];
+                console.log("-------------------------------------------------------------------------------------------")
+                console.log(actores.dni  + " " + actores.nombre_actor  + " " + actores.correo  + " " + actores.descripcion);
+                Principal.estruct3.insertDataNTree(actores.dni, actores.nombre_actor, actores.correo, actores.descripcion);
+            }
+            grafoBinarioTres();
+        }
+        lectura.readAsText(documento);
+    }
+
+    cargarArchivo4Categorias(x){//Cargando categorías
+        Principal.estruct4 = new ListaCir();//cambiar
+        for(var i = 0; i<20; i++){//llenando la tabla hash, las cabeceras
+            Principal.estruct4.insertarUs(i);
+        }
+        var documento = x.target.files[0];
+        if (!documento) {
+            return;
+        }
+        let lectura = new FileReader();
+        lectura.onload = function(x) {
+            let contenido = x.target.result;
+            const object = JSON.parse(contenido);
+            for (const key in object) {
+                let categorias = object[key];
+                console.log("-------------------------------------------------------------------------------------------")
+                console.log(categorias.id_categoria  + " " + categorias.company);
+                Principal.estruct4.insertarPrincipal(categorias.id_categoria, categorias.company);
+            }
+            grafoTabla();
+        }
+        lectura.readAsText(documento);
+    }
+
+    descargarImg(){
+        descargarImg();
+    }
+
+    grafo1(){
+        grafoAvlUno();
+    }
+    
+    grafo2(){
+        grafoListaDos();
+    }
+    
+    grafo3(){
+        grafoBinarioTres();
+    }
+
+    grafo4(){
+        grafoTabla();
+    }
+}
+
+function grafoAvlUno(){
+    //console.log("Holaaaaaaaaa")
+    //Biblio.mat.graficarMatriz(); treeS.graphTree(treeS.root);
+    Principal.estruct1.graphTree(Principal.estruct1.root);
+}
+
+function grafoListaDos(){
+    //console.log("Holaaaaaaaaa")
+    //Biblio.mat.graficarMatriz(); treeS.graphTree(treeS.root);
+    Principal.estruct2.grafo()
+}
+
+function grafoBinarioTres(){
+    //console.log("Holaaaaaaaaa")
+    //Biblio.mat.graficarMatriz(); treeS.graphTree(treeS.root);
+    Principal.estruct3.graphTree()
+}
+
+
+function grafoTabla(){
+    //console.log("Holaaaaaaaaa")
+    //Biblio.mat.graficarMatriz(); treeS.graphTree(treeS.root);
+    Principal.estruct4.graficarCir();
+}
+
+function descargarImagen() {//////////7VEEEEEEEEEEEER LO DE DESCARGAR IMAGEN CUANDO ELIMINO EL TREE AVL AHÍ SÍ
+    html2canvas($('#Login')[0]).then(function (canvas) {
+        return Canvas2Image.saveAsPNG(canvas);
+        $(".response").append(canvas);
+    });
 }
 
 var principal = new Principal();
-document.getElementById("document").addEventListener("change", principal.cargarArchivo, false);
+document.getElementById("document").addEventListener("change", principal.cargarArchivo1Pelis, false);
+document.getElementById("carga2").addEventListener("change", principal.cargarArchivo2Clientes, false);
+document.getElementById("carga3").addEventListener("change", principal.cargarArchivo3Actores, false);
+document.getElementById("carga4").addEventListener("change", principal.cargarArchivo4Categorias, false);
+
+//document.getElementById("carga2").addEventListener("change", uno.cargarArchivo2, false);
+//document.getElementById("carga3").addEventListener("change", uno.cargarArchivo3, false);
+//document.getElementById("carga4").addEventListener("change", uno.cargarArchivo, false);

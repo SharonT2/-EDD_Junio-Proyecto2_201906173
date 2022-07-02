@@ -9,41 +9,16 @@
     <link type="text/css" rel="stylesheet" href="estilo.css"> <!--Modificación para que pudera encontrar el archivo css-->
 </head>
 <body>
-    <div id="titulo">
-        <h1>MOVIECATS</h1>
-    </div>
-    <input type="submit" value="Home" id="Home" style="cursor: pointer" onclick="principal.limpiar2()"></input>
-    <div id="tez">
-    <!--<p>Home principal, ingrese sus datos para poder realizar las funcionalidades de administrador o cliente</p>-->
-        <!--<input type="submit" value="Tops" id="document3" style="cursor: pointer" onclick=""></input>---->
-    </div>
-
-    <!--<div id="titulo">
-    <h2>📚 Hola mundo, Sí funciona el frontend</h2>
-    </div>-->
-
-    <div id="botones">
-        <!--BOTOON PARA CARGAR ARCHIVOS<div class="file-select" id="src-file1" >
-            <input type="file" name="document" id="document" style="cursor: pointer"></input>
-        </div>---->
-        <input type="button" value="Iniciar Sesión" id="document2" style="cursor: pointer" onclick="principal.mostrarLog()"></input>
-        <!-- CARGA MASIVA -->
-    </div>
-
-    <div id="caja"; style="display:none"><textarea cols="140" rows="35", id="cajaE"; style="display:none">Área de texto!</textarea></div>
-    <div id="botones2"; style="display:none">
+    <div id="titulo"> <h1>MOVIECATS</h1></div>
+    <div id="tez"></div>
+    <div id="botones2"; style="display:none"; style = "float: left">
         <input type="file" value="CargarLibros" name="document" id="document" style="cursor: pointer"><b>Peliculas</b></input>
         <input type="file" name="CargaAutores" id="carga2" style="cursor: pointer"><b>Clientes</b></input>
         <input type="file" name="Carga3" id="carga3" style="cursor: pointer"><b>Actores</b></input>
         <input type="file" name="Carga4" id="carga4" style="cursor: pointer"><b>Categori</b></input>
-        <input type="button" value="Libros Fantasía" id="ortogonal" style="cursor: pointer" onclick="principal.divOrto()"></input>
-        <input type="button" value="Libros Thriller" id="dispersa" style="cursor: pointer" onclick="principal.divDis()"></input>
-        <input type="button" value="Libros FantasíaImg" id="ortogonalx" style="cursor: pointer" onclick="principal.divOrtox()"></input>
-        <input type="button" value="Libros ThrillerImg" id="dispersay" style="cursor: pointer" onclick="principal.divDisy()"></input>
-        <input type="button" value="Autores" id="autores" style="cursor: pointer" onclick="principal.divTree()"></input>
-        <input type="button" value="Usuarios" id="Usuarios" style="cursor: pointer" onclick="principal.divCir()"></input>
-        <input type="button" value="Limpiar" id="limpiar" style="cursor: pointer" onclick="principal.limpiar()"></input>
     </div>
+    <div id="caja"; style="display:none"></div>
+
     <!---<div id="Entrada">
         <h2>Archivo de entrada</h2>
         <textarea cols="70" rows="2" wrap="hard" readonly="no"></textarea>
@@ -53,12 +28,13 @@
         <h2>Archivo de salida</h2> 
         <textarea cols="80" rows="30" wrap="hard" readonly="no"></textarea>
     </div>---->
-
     <!----<form method="get" action="http://localhost:5000/docu" target="_blank">
     <input type="submit" value=" Documentacion " id="document4" style="cursor: pointer"></input>
     </form>---->
 
     <!--LOGIN--->
+
+
     <div name="Login" id = "Login"; style="display:block">
         <form id="formularioLogin">
             <p id="titulolog">Inicia sesión 🎞️</p>
@@ -70,6 +46,13 @@
             <label id="admin">Administrador<input type="checkbox" id="check" name="languajes" checked value="html"></input></label>  <!---checked para qeu se marque uno por defecto-->
         </form>
     </div>
+    <input type="button" value="Cerrar Sesión" id="document2"; style="cursor: pointer; display:none" onclick="principal.mostrarLog()"></input>
+    <button type="button" value="cambio1" id="cambio1"; style="cursor: pointer; display:none" onclick="principal.grafo1()">grafoPeliculas</button>
+    <button type="button" value="cambio2" id="cambio2"; style="cursor: pointer; display:none" onclick="principal.grafo2()">grafoClientes</button>
+    <button type="button" value="cambio3" id="cambio3"; style="cursor: pointer; display:none" onclick="principal.grafo3()">grafoActores</button>
+    <button type="button" value="cambio4" id="cambio4"; style="cursor: pointer; display:none" onclick="principal.grafo4()">grafoCategorias</button>
+    <button type="button" value="descargarP" id="descargarP"; style="cursor: pointer; display:none" onclick="descargarImagen()">Descargar</button>
+    <!--<a href="prueba.html">redireccionar</a>-->
 
     <div id="prueba1"; style="display:none"> </div> <!--Para la matriz ortogonal-->
     <div id="prueba2"; style="display:none"> </div> <!--Para la matriz dispersa-->
@@ -79,12 +62,23 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>   
     <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
-    
+    <script src="https://superal.github.io/canvas2image/canvas2image.js "></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--<script type="text/javascript" src="./sharonIns.js"></script>---->
-    <script type="text/javascript" src="./.js"></script>
-    <script type="text/javascript" src="./.js"></script>
-    <script type="text/javascript" src="./.js"></script>
-    <script type="text/javascript" src="./.js"></script>
+    <script type="text/javascript" src="./treeAVL.js"></script>
+    <script type="text/javascript" src="./listaSimple.js"></script>
+    <script type="text/javascript" src="./arbolBinario.js"></script>
+    <script type="text/javascript" src="./tablaHa.js"></script>
     <script type="text/javascript" src="./principal.js"></script><!--Este será el principal--> 
+
 </body>
+<script>
+function descargarImagen() {//////////7VEEEEEEEEEEEER LO DE DESCARGAR IMAGEN CUANDO ELIMINO EL TREE AVL AHÍ SÍ
+        html2canvas($('#caja')[0]).then(function (canvas) {
+            return Canvas2Image.saveAsPNG(canvas);
+            $(".response").append(canvas);
+        });
+    }
+</script>
 </html>

@@ -1,6 +1,10 @@
-class Node {
-    constructor(valor) {
-        this.valor = valor;
+class NodeAVL {
+    constructor(valor, nombre_pelicula, descripcion, puntuacion_star, precio_Q) {
+        this.valor = valor;//valor será el id
+        this.nombre_pelicula = nombre_pelicula;
+        this.descripcion = descripcion;
+        this.puntuacion_star = puntuacion_star;
+        this.precio_Q = precio_Q;
         this.height = 1;
         this.left = null;
         this.right = null;
@@ -21,9 +25,9 @@ class Node {
         var content = ""
         if (this.left == null && this.right == null)
             //var procesado = texto.split(" ").join("")
-            content += "node"  + this.valor + " [ label =\"" + this.valor + "\"];\n";
+            content += "node"  + this.valor + " [ label =\"" + this.nombre_pelicula + "\"];\n";
         else
-            content += "node" + this.valor + " [ label =\"<C0>|"  + this.valor  + "|<C1>\"];\n";
+            content += "node" + this.valor + " [ label =\"<C0>|"  + this.nombre_pelicula  + "|<C1>\"];\n";
         if (this.left != null){
             content += this.left.exploreTree() + "node" + this.valor + ":C0->node" + this.left.valor + ";\n";
         }
@@ -34,9 +38,10 @@ class Node {
     }
 
     generarImagen(codigodot){
-        d3.select("#grafica").graphviz()
+        d3.select("#caja").graphviz()
             .width(3000)
             .height(1500)
+            .fit(true)
             .renderDot(codigodot)
     }
 }
@@ -82,15 +87,15 @@ class treeAVL {
         return this.height(ds.left) - this.height(ds.right);
     }
 
-    insert(nodo, valor) {
+    insert(nodo, valor, nombre_pelicula, descripcion, puntuacion_star, precio_Q) {
         if (nodo == null){
-            return new Node(valor);
+            return new NodeAVL(valor, nombre_pelicula, descripcion, puntuacion_star, precio_Q);
         }
         if (valor < nodo.valor){
-            nodo.left = this.insert(nodo.left, valor);
+            nodo.left = this.insert(nodo.left, valor, nombre_pelicula, descripcion, puntuacion_star, precio_Q);
         }
         else if (valor > nodo.valor){
-            nodo.right = this.insert(nodo.right, valor);
+            nodo.right = this.insert(nodo.right, valor, nombre_pelicula, descripcion, puntuacion_star, precio_Q);
         }
         else{
             return nodo;
@@ -139,9 +144,9 @@ class treeAVL {
         if (node != null) {
             if (node.left == null && node.right == null)
                 //var procesado = texto.split(" ").join("")
-                content += "node"  + node.valor + " [ label =\"" + node.valor + "\"];\n";
+                content += "node"  + node.valor + " [ label =\"" + node.nombre_pelicula + "\"];\n";
             else
-                content += "node" + node.valor + " [ label =\"<C0>|"  + node.valor  + "|<C1>\"];\n";
+                content += "node" + node.valor + " [ label =\"<C0>|"  + node.nombre_pelicula  + "|<C1>\"];\n";
             if (node.left != null){
                 content += node.left.exploreTree() + "node" + node.valor + ":C0->node" + node.left.valor + ";\n";
             }
@@ -153,13 +158,16 @@ class treeAVL {
     }
 
     generarImagen(codigodot){
-        d3.select("#grafica").graphviz()
-            .width(3000)
-            .height(1500)
+        d3.select("#caja")
+            .graphviz()
+            .zoom(false)
             .renderDot(codigodot)
+            //.width(3000)
+            //.height(1500)
+            //.renderDot(codigodot)
     }
 }
-var treeS = new treeAVL();
+//ahorita var treeS = new treeAVL();
 //var nodo = new Node();
 //11,23,35,46,54,26,83,20,100,54,2,1,6,8
 // treeS.root = treeS.insert(treeS.root, 11);
@@ -177,6 +185,8 @@ var treeS = new treeAVL();
 // treeS.root = treeS.insert(treeS.root, 6);
 // treeS.root = treeS.insert(treeS.root, 8);
 
+
+/* AHORITA QUITÉ
 treeS.root = treeS.insert(treeS.root, 7140394722109);
 treeS.root = treeS.insert(treeS.root, 5710530186284);
 treeS.root = treeS.insert(treeS.root, 2561983506422);
@@ -201,3 +211,4 @@ treeS.pOrden(treeS.root);
 console.log("======================")
 console.log(treeS.graphTree(treeS.root));
 treeS.graphTree(treeS.root);
+]*/

@@ -1,8 +1,8 @@
 //alert("CAMBIOOOOOOOOOOOOOOOOOOOOOOOSHARON")
 class NodoSimpleCir{//Para la listita(Sublista)
-    
-    constructor(libro){
-        this.libro = libro;
+    constructor(libro, libro2){
+        this.libro = libro;//id
+        this.libro2 = libro2;//nombre
         this.next = null;
     }
 }
@@ -61,7 +61,7 @@ class ListaCir{//Clase de la lista principal, la ciruular
         }
     }
 
-    insertarPrincipal(dato){
+    insertarPrincipal(dato, dato2){
         console.log("-------------------------------")
         var ultimoCaracter = dato%20;//ultimo caracter simboliza la cooredenada
         //var ultimoCaracter = coor.charAt(coor.length - 1)
@@ -80,7 +80,7 @@ class ListaCir{//Clase de la lista principal, la ciruular
             //var ultimoCaracter = coor.charAt(coor.length - 1);
             //console.log(">holaaaaaaaaaaaaaaaaaaaa ultimo caracter " + ultimoCaracter) PARA IMPRIMIR EL ULTIMO CARACTER
             //console.log(ultimoCaracter)
-            this.insertarLibroCir(ultimoCaracter, dato)//el ultimo caracter hace referencia a la coordenada, y el dato al dato qu3e se presentará en el nodo
+            this.insertarLibroCir(ultimoCaracter, dato, dato2)//el ultimo caracter hace referencia a la coordenada, y el dato al dato qu3e se presentará en el nodo
         }else{
             console.log("este dato ya se insertó en la tabla hash")
         }
@@ -118,14 +118,14 @@ class ListaCir{//Clase de la lista principal, la ciruular
         }
     }
 
-    insertarLibroCir(cliente, libro){
+    insertarLibroCir(cliente, libro, dato2){
 
         var auxCliente = this.first
         var confir = false
         do{
             if(auxCliente.cliente == cliente){
                 console.log("Se encontró al cliente")
-                var niuLibro = new NodoSimpleCir(libro)
+                var niuLibro = new NodoSimpleCir(libro, dato2)
                 var inicioLibro = auxCliente.down
                 auxCliente.down = niuLibro
                 niuLibro.next = inicioLibro
@@ -158,7 +158,7 @@ class ListaCir{//Clase de la lista principal, la ciruular
                 console.log("****** Cliente" + cliente + "*****")
                 var auxLibro = aux.down
                 while(auxLibro != null){
-                    console.log(auxLibro.libro)
+                    console.log(auxLibro.libro + " " + auxLibro.libro2)
                     auxLibro = auxLibro.next         
                 }
                 return
@@ -188,7 +188,7 @@ class ListaCir{//Clase de la lista principal, la ciruular
                         if(confir == false){
                             console.log("ACUMULADOR " + acumulador)
                             if(auxLibro.libro != undefined){
-                                acumulador += "N" + num + " -> " + auxLibro.libro ; //+ ListaCir.contU
+                                acumulador += "N" + num + " -> " + auxLibro.libro2 + "_" + auxLibro.libro ; //+ ListaCir.contU
                                 auxLibro = auxLibro.next
                                 confir = true
                             //     ListaCir.contU++
@@ -196,7 +196,7 @@ class ListaCir{//Clase de la lista principal, la ciruular
                         }else{
                             console.log("ACUMULADOR " + acumulador)
                             if(auxLibro.libro != undefined){
-                                acumulador +=  " -> " + auxLibro.libro ;////+ ListaCir.contU
+                                acumulador +=  " -> " + auxLibro.libro2 + "_" + auxLibro.libro  ;////+ ListaCir.contU
                                 auxLibro = auxLibro.next
                             //    ListaCir.contU++
                             }
@@ -289,14 +289,14 @@ class ListaCir{//Clase de la lista principal, la ciruular
         
     }
     generarImagen(codigodot){
-        d3.select("#grafica").graphviz()
-            .width(3000)
-            .height(1500)
+        d3.select("#caja").graphviz()
+            .zoom(false)
+            .fit(true)
             .renderDot(codigodot)
     }
     
 }
-
+/*ESTOOO
 var listalistas = new ListaCir();
 listalistas.insertarUs(0);
 listalistas.insertarUs(1);
@@ -317,7 +317,7 @@ listalistas.insertarUs(15);
 listalistas.insertarUs(16);
 listalistas.insertarUs(17);
 listalistas.insertarUs(18);
-listalistas.insertarUs(19);
+listalistas.insertarUs(19);*/
 
 /*
 
@@ -330,6 +330,7 @@ listalistas.insertarLibroCir(5,"x")
 listalistas.insertarLibroCir(6,"x")
 
 */
+/*estooooooooo
 listalistas.insertarPrincipal(4163);
 listalistas.insertarPrincipal(8305);
 listalistas.insertarPrincipal(3064);
@@ -371,10 +372,10 @@ listalistas.insertarPrincipal(4373);
 listalistas.insertarPrincipal(5211);
 listalistas.insertarPrincipal(4093);
 listalistas.insertarPrincipal(7132);
-listalistas.insertarPrincipal(8058);
+listalistas.insertarPrincipal(8058);*/
 
 //console.log(listalistas.tarea())
-listalistas.graficarCir();
+//estooooooooooooooooooooooooooooooooooooooolistalistas.graficarCir();
 //listalistas.mostrar()
 /*listalistas.insertarLibroCir("Sharon", "x")
 listalistas.insertarLibroCir("Marleny", "x")
@@ -431,7 +432,7 @@ listalistas.showLibroCir("Cami")
 
 console.log(listalistas.graficarCir())
 
-d3.select("#grafica").graphviz()
+d3.select("#caja").graphviz()
     .width(3000)
     .height(500)
     .renderDot(listalistas.graficarCir())
