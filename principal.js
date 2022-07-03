@@ -55,8 +55,8 @@ class Principal{
             //console.log("hola cliente   " + Principal.estruct2.existe())
            //    Principal.cargarArchivo2Clientes.estruct2.existe()
             //Principal.cargarArchivo2Clientes(true)
-            //******+OJO var ver =  Principal.estruct2.existe(nombreAdmin, contraAdmin);
-            var ver = true;
+            var ver =  Principal.estruct2.existe(nombreAdmin, contraAdmin);
+            //var ver = true;
             if(ver == true){
                 alert("bienvenido cliente!")
                 this.ocultarLog();

@@ -192,11 +192,17 @@ class treeAVL {
         //con.innerHTML += peliculas.puntuacion_star + "<br/>"
         con.innerHTML += "<b>Precio Pelicula:</b> " + node.precio_Q + "<br/>"
         con.innerHTML += node.puntuacion_star + "<br/>"
+        //con.innerHTML += "<hr />";
+        //node.valor.comments.forEach((c) => {
+        //    con.innerHTML += c + "<br />"
+        //});
+        con.innerHTML += "<hr />";
         con.innerHTML += `<input type="text" name="puntuacion" id="puntuacion${node.valor}"/>`//<input type="text" name="peli" id="peli"/></p>
         con.innerHTML += `<button onclick="principal.puntear(${node.valor})">ModificarPuntuacion</button>`;//<input type="text" name="nombre"/></p>
-        
+        con.innerHTML += "<br />";
         con.innerHTML += `<input type="text" id="comments-${node.valor}"/>`//<input type="text" name="peli" id="peli"/></p>
         con.innerHTML += `<button onclick="principal.comentar(${node.valor})">Añadir comentario</button>`;
+        con.innerHTML += "<hr />";
         document.querySelector(contenido).appendChild(con);
         }
 
