@@ -379,3 +379,12 @@ input[type="button"]:hover{ /*color al boton, cuando el usuario se posicione en 
     height: 30px;
     margin-left: 0px;
 }
+
+#pelicula{
+    margin-top: 100px;
+    width: 1150px;
+    height: 600px;
+    background: rgb(226, 215, 232);
+    overflow: auto;
+    margin-left: 150px;
+}

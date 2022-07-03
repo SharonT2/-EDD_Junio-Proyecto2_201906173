@@ -24,6 +24,7 @@ class Principal{
         document.getElementById("ActoresPostorden").style.display = "none"
         document.getElementById("ascendente").style.display = "none"//se mostrarán los botones para cargar archivos
         document.getElementById("descendente").style.display = "none"
+        document.getElementById("pelicula").style.display = "none"//pelicula
     }
 
     ocultarLog(){
@@ -88,6 +89,8 @@ class Principal{
         document.getElementById("ActoresInorden").style.display = "none"
         document.getElementById("ActoresPreorden").style.display = "none"
         document.getElementById("ActoresPostorden").style.display = "none"
+        document.getElementById("pelicula").style.display = "none"//pelicula
+
     }
     paginaCliente(){//ocultando y mostrando cosas para el admin
         document.getElementById("ascendente").style.display = "block"//se mostrarán los botones para cargar archivos
@@ -97,6 +100,8 @@ class Principal{
         document.getElementById("ActoresPreorden").style.display = "block"
         document.getElementById("ActoresPostorden").style.display = "block"
         document.getElementById("document2").style.display = "block"
+        document.getElementById("pelicula").style.display = "block"//pelicula
+
         //document2
     }
 
@@ -115,16 +120,6 @@ class Principal{
                 console.log("----------------------------------------------")
                 console.log(peliculas.id_pelicula + " " + peliculas.nombre_pelicula + " " + peliculas.descripcion + " " + peliculas.puntuacion_star + " " + peliculas.precio_Q)
                 Principal.estruct1.root = Principal.estruct1.insert(Principal.estruct1.root, peliculas.id_pelicula, peliculas.nombre_pelicula, peliculas.descripcion, peliculas.puntuacion_star, peliculas.precio_Q);
-                
-                const con = document.createElement("div");
-                //con.innerHTML +=  peliculas.id_pelicula + "<br/>"
-                con.innerHTML += "<b>Nombre Pelicula:</b> " + peliculas.nombre_pelicula + "<br/>"
-                con.innerHTML += "<b>Descripcion Pelicula: </b><br/>"
-                con.innerHTML +=  peliculas.descripcion + "<br/>"
-                //con.innerHTML += peliculas.puntuacion_star + "<br/>"
-                con.innerHTML += "<b>Precio Pelicula:</b> " + peliculas.precio_Q + "<br/>"
-                con.innerHTML += `<button onclick=" comprar(${peliculas.id_pelicula})">AlquilarPeli</button>`;
-                document.querySelector("#textoOrdenamientos").appendChild(con);
             }                                                       //valor, nombre_pelicula, descripcion, puntuacion_star, precio_Q
             grafoAvlUno();
             oreden();
@@ -241,7 +236,6 @@ class Principal{
         Principal.estruct1.SinOrden(Principal.estruct1.root, "#textoOrdenamientos");
     }
 
-
     actoresInorden(){
         const aux = document.querySelector("#textoOrdenamientos");
         aux.innerHTML = "";
@@ -259,6 +253,19 @@ class Principal{
         Principal.estruct3.ActoresPostorden(Principal.estruct3, "#textoOrdenamientos");
     }
     
+    comentar(idPeli){
+        Principal.estruct1
+        .buscarA(Principal.estruct1.root, idPeli)
+        .comments.push(document.querySelector(`#comments-${idPeli}`).value);
+        const aux = document.querySelector("#textoOrdenamientos");
+        aux.innerHTML = "";
+        Principal.estruct1.OrdenAsc(Principal.estruct1.root, "#textoOrdenamientos");
+    }
+
+    buscar(){
+        console.log("entra")
+        console.log(Principal.estruct1.buscarA(Principal.estruct1.root, 9833425323037));
+    }
 }
 
 function grafoAvlUno(){
