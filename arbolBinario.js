@@ -79,6 +79,45 @@ class NodoTreeBB{
         return content;
     }
 
+    insertH(node, contenido){//contenido será mi div
+        const con = document.createElement("div");
+        //con.innerHTML += "" + node.valor + "<br/>"
+        con.innerHTML +=  "<b>NombreActor:</b> " + node.nombre_actor + "<br/>"
+        con.innerHTML += "<b>Correo:</b> " + node.correo + "<br/>"
+        con.innerHTML += "<b>Descripcion:</b> " + node.descripcion + "<br/><br/>"
+        //con.innerHTML += `<button onclick=" comprar(${node.valor})">AlquilarPeli</button>`;
+        document.querySelector(contenido).appendChild(con);
+        }
+
+    ActoresInorden(nodo, contenido){
+        if(nodo == null) return;
+        this.ActoresInorden(nodo.left, contenido);
+        console.log("esto: " + nodo)
+        this.insertH(nodo, contenido);
+        this.ActoresInorden(nodo.right, contenido);
+
+    }
+    
+
+    ActoresPreorden(nodo, contenido){
+        console.log("esto: " + nodo)
+        if(nodo == null) return;            //console.log(nodo.valor + " " + nodo.descripcion);
+        console.log("esto: " + nodo)
+        this.insertH(nodo, contenido);
+        this.ActoresPreorden(nodo.left, contenido);
+        this.ActoresPreorden(nodo.right, contenido);
+    }
+    ActoresPostorden(nodo, contenido){
+        console.log("esto: " + nodo)
+        if(nodo == null) return;
+        //console.log(nodo.vAlor + " " + nodo.descripcion);
+        this.ActoresPostorden(nodo.left, contenido);
+        this.ActoresPostorden(nodo.right, contenido);
+        console.log("esto: " + nodo)
+        this.insertH(nodo, contenido);
+        
+    }
+
     generarImagen(codigodot){
         d3.select("#caja").graphviz()
             .zoom(false)

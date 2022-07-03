@@ -95,6 +95,18 @@ class listaSimple {//clase lista, que contendrá mis métodos
         };
         return null;
     };
+    //metodo para poder buscar datos através de la lista
+    existe(nombreAdmin, contraAdmin){
+        let actual = this.cabeza;
+        //let ant = null;
+        while(actual != null){
+            if(actual.nombre_usuario == nombreAdmin && actual.contrasenia == contraAdmin){//si encontramos la info que queremos eliminar
+                return true;
+            };
+            actual = actual.next;
+        };
+        return false;
+    };
 
     //------Method of delete data from the list to a specific location
     deletIndex(location){

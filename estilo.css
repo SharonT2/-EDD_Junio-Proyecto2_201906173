@@ -170,24 +170,7 @@ h2{
     color: white;
 }
 
-#ortogonalx{
-    background-image: url(libro.jpg);
-    margin-top: 10px;
-    margin-left: 1420px;
-    width: 300px;
-    height: 40px;
-    background-color: #2f3233;
-    color: white;
-}
-#dispersay{
-    background-image: url(libro.jpg);
-    margin-top: 10px;
-    margin-left: 1420px;
-    width: 300px;
-    height: 40px;
-    background-color: #2f3233;
-    color: white;
-}
+
 
 #autores{
     margin-top: 10px;
@@ -309,11 +292,6 @@ input[type="button"]:hover{ /*color al boton, cuando el usuario se posicione en 
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
-p{
-    color: white;
-    font-size: xx-large;
-    background-image: url(libro.jpg);  
-}
 
 #botones2{
     margin-top: 0px;
@@ -349,4 +327,55 @@ p{
     margin-left: 150px;
 }
 
+#ascendente{
+    margin-top: 10px;
+    background-color: #2a576e;
+    width: 110px;
+    height: 30px;
+}
 
+
+#descendente{
+    margin-top: 10px;
+    background-color: #2a576e;
+    width: 110px;
+    height: 30px;
+    margin-left: 0px;
+}
+
+#ActoresInorden{
+    margin-top: 10px;
+    background-color: #2a576e;
+    width: 110px;
+    height: 30px;
+}
+
+#ActoresPreorden{
+    margin-top: 10px;
+    background-color: #2a576e;
+    width: 110px;
+    height: 30px;
+}
+
+#ActoresPostorden{
+    margin-top: 10px;
+    background-color: #2a576e;
+    width: 110px;
+    height: 30px;
+}
+#textoOrdenamientos{
+    margin-top: 5px;
+    width: 1150px;
+    height: 600px;
+    background: rgb(226, 215, 232);
+    overflow: auto;
+    margin-left: 150px;
+}
+
+#sinOrden{
+    margin-top: 50px;
+    background-color: #2a576e;
+    width: 100px;
+    height: 30px;
+    margin-left: 0px;
+}

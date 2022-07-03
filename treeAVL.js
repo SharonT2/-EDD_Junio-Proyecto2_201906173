@@ -121,7 +121,7 @@ class treeAVL {
 
     pOrden(node) {
         if (node != null) {
-            console.log(node.valor + " ");
+            console.log(node.valor + " " + node.descripcion);
             this.pOrden(node.left);
             this.pOrden(node.right);
         }
@@ -166,6 +166,34 @@ class treeAVL {
             //.height(1500)
             //.renderDot(codigodot)
     }
+
+    insertH(node, contenido){//contenido será mi div
+        const con = document.createElement("div");
+        con.innerHTML += node.valor + "<br/>"
+        con.innerHTML += node.nombre_pelicula + "<br/>"
+        con.innerHTML += node.descripcion + "<br/>"
+        con.innerHTML += node.puntuacion_star + "<br/>"
+        con.innerHTML += node.precio_Q + "<br/>"
+        con.innerHTML += `<button onclick=" comprar(${node.valor})">AlquilarPeli</button>`;
+        document.querySelector(contenido).appendChild(con);
+        }
+
+    OrdenAsc(nodo, contenido){//raiz y lienzo
+        if(nodo == null) return;
+        
+        this.OrdenAsc(nodo.left, contenido);
+        this.insertH(nodo, contenido);
+        this.OrdenAsc(nodo.right, contenido);
+        }
+
+    OrdenDesc(nodo, contenido){//raiz y lienzo
+        if(nodo == null) return;
+        
+        this.OrdenDesc(nodo.right, contenido);
+        this.insertH(nodo, contenido);
+        this.OrdenDesc(nodo.left, contenido);
+        }
+    
 }
 //ahorita var treeS = new treeAVL();
 //var nodo = new Node();

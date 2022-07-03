@@ -54,6 +54,20 @@
     <button type="button" value="descargarP" id="descargarP"; style="cursor: pointer; display:none" onclick="descargarImagen()">Descargar</button>
     <!--<a href="prueba.html">redireccionar</a>-->
 
+    <!---Para los usuarios-->
+    <div id="ordenamientos">
+        <input type="button" value="ascendente" name="ascendente" id="ascendente" style="cursor: pointer; display:none" onclick="principal.ordenAsc()"></input>
+        <input type="button" value="descendente" name="descendente" id="descendente" style="cursor: pointer; display:none"onclick="principal.ordenDesc()"></input>
+        <input type="button" value="ActoresInorden" name="ActoresInorden" id="ActoresInorden" style="cursor: pointer; display:none"onclick="principal.actoresInorden()"></input>
+        <input type="button" value="ActoresPreorden" name="ActoresPreorden" id="ActoresPreorden" style="cursor: pointer; display:none"onclick="principal.actoresPreorden()"></input>
+        <input type="button" value="ActoresPostorden" name="ActoresPostorden" id="ActoresPostorden" style="cursor: pointer; display:none"onclick="principal.actoresPostorden()"></input>
+    </div>
+
+    <div id="textoOrdenamientos" style="display:none">
+    <div id="pelicula" style="display:none"></div>
+        
+    </div>
+
     <div id="prueba1"; style="display:none"> </div> <!--Para la matriz ortogonal-->
     <div id="prueba2"; style="display:none"> </div> <!--Para la matriz dispersa-->
     <div id="prueba1x"; style="display:none"> </div> <!--Para la matriz ortogonal-->

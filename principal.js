@@ -2,7 +2,7 @@ class Principal{
     static estruct1
     static estruct2
     static estruct3
-    static estruct3x
+    //static estruct3x
     static estruct4
     mostrarLog(){
         document.getElementById("titulo").style.display = "block"//se mostrarán los botones para cargar archivos
@@ -18,7 +18,12 @@ class Principal{
         document.getElementById("cambio2").style.display = "none"
         document.getElementById("cambio3").style.display = "none"
         document.getElementById("cambio4").style.display = "none"
-
+        document.getElementById("textoOrdenamientos").style.display = "none"//textoOrdenamientos
+        document.getElementById("ActoresInorden").style.display = "none"
+        document.getElementById("ActoresPreorden").style.display = "none"
+        document.getElementById("ActoresPostorden").style.display = "none"
+        document.getElementById("ascendente").style.display = "none"//se mostrarán los botones para cargar archivos
+        document.getElementById("descendente").style.display = "none"
     }
 
     ocultarLog(){
@@ -37,7 +42,7 @@ class Principal{
         var contraAdmin = document.getElementById("passwordA").value;
         var check = document.getElementById("check").checked;
         //validando credenciales
-        if(check == true){
+        if(check == true){//si marca el admin se irá a la página del administrador
             if(nombreAdmin == adm && contra == contraAdmin){
                 alert("bienvenido administrador!")
                 this.ocultarLog();
@@ -45,8 +50,20 @@ class Principal{
             }else{
                 alert("Credenciales incorrectas")
             }
-        }else{
-            console.log("Aquí debería ir a la página del cliente")
+        }else{//sino se irá a la página del usuario
+            //console.log("hola cliente   " + Principal.estruct2.existe())
+           //    Principal.cargarArchivo2Clientes.estruct2.existe()
+            //Principal.cargarArchivo2Clientes(true)
+            //******+OJO var ver =  Principal.estruct2.existe(nombreAdmin, contraAdmin);
+            var ver = true;
+            if(ver == true){
+                alert("bienvenido cliente!")
+                this.ocultarLog();
+                this.paginaCliente();
+            }else{
+                alert("Credenciales incorrectas")
+            }
+            //console.log("Aquí debería ir a la página del cliente")
         }
     }
 
@@ -65,8 +82,22 @@ class Principal{
         document.getElementById("cambio2").style.display = "block"
         document.getElementById("cambio3").style.display = "block"
         document.getElementById("cambio4").style.display = "block"
+        document.getElementById("textoOrdenamientos").style.display = "none"//textoOrdenamientos
         //document.getElementById("cajaE").style.display = "block"
         //document.getElementById("document2").style.display = "block"
+        document.getElementById("ActoresInorden").style.display = "none"
+        document.getElementById("ActoresPreorden").style.display = "none"
+        document.getElementById("ActoresPostorden").style.display = "none"
+    }
+    paginaCliente(){//ocultando y mostrando cosas para el admin
+        document.getElementById("ascendente").style.display = "block"//se mostrarán los botones para cargar archivos
+        document.getElementById("descendente").style.display = "block"
+        document.getElementById("textoOrdenamientos").style.display = "block"//textoOrdenamientos
+        document.getElementById("ActoresInorden").style.display = "block"
+        document.getElementById("ActoresPreorden").style.display = "block"
+        document.getElementById("ActoresPostorden").style.display = "block"
+        document.getElementById("document2").style.display = "block"
+        //document2
     }
 
     cargarArchivo1Pelis(x){//Cargando peliculas
@@ -82,36 +113,49 @@ class Principal{
             for (const key in object) {
                 let peliculas = object[key];
                 console.log("----------------------------------------------")
-                console.log(peliculas.id_pelicula + " " + peliculas.nombre_pelicula + " " + peliculas.descripcion + " " + peliculas.puntuacion_star + " " + peliculas.precion_Q)
-                Principal.estruct1.root = Principal.estruct1.insert(Principal.estruct1.root, peliculas.id_pelicula, peliculas.nombre_pelicula);
-            }
+                console.log(peliculas.id_pelicula + " " + peliculas.nombre_pelicula + " " + peliculas.descripcion + " " + peliculas.puntuacion_star + " " + peliculas.precio_Q)
+                Principal.estruct1.root = Principal.estruct1.insert(Principal.estruct1.root, peliculas.id_pelicula, peliculas.nombre_pelicula, peliculas.descripcion, peliculas.puntuacion_star, peliculas.precio_Q);
+                
+                const con = document.createElement("div");
+                //con.innerHTML +=  peliculas.id_pelicula + "<br/>"
+                con.innerHTML += "<b>Nombre Pelicula:</b> " + peliculas.nombre_pelicula + "<br/>"
+                con.innerHTML += "<b>Descripcion Pelicula: </b><br/>"
+                con.innerHTML +=  peliculas.descripcion + "<br/>"
+                //con.innerHTML += peliculas.puntuacion_star + "<br/>"
+                con.innerHTML += "<b>Precio Pelicula:</b> " + peliculas.precio_Q + "<br/>"
+                con.innerHTML += `<button onclick=" comprar(${peliculas.id_pelicula})">AlquilarPeli</button>`;
+                document.querySelector("#textoOrdenamientos").appendChild(con);
+            }                                                       //valor, nombre_pelicula, descripcion, puntuacion_star, precio_Q
             grafoAvlUno();
+            oreden();
         }
         lectura.readAsText(documento);
     }
     cargarArchivo2Clientes(x){//Cargando clientes
+        console.log("3·····")
         /*const lista = new listaSimple();
-console.log(lista);//Para ver cómo está la lista
+        console.log(lista);//Para ver cómo está la lista
 
-lista.addData(12);*/
-        Principal.estruct2 = new listaSimple();//cambiar
-        var documento = x.target.files[0];
-        if (!documento) {
-            return;
-        }
-        let lectura = new FileReader();
-        lectura.onload = function(x) {
-            let contenido = x.target.result;
-            const object = JSON.parse(contenido);
-            for (const key in object) {
-                let clientes = object[key];
-                console.log("----------------------------------------------")
-                console.log(clientes.dpi  + " " + clientes.nombre_completo  + " " + clientes.nombre_usuario  + " " + clientes.correo  + " " + clientes.contrasenia  + " " + clientes.telefono);
-                Principal.estruct2.addData(clientes.dpi, clientes.nombre_completo, clientes.nombre_usuario, clientes.correo, clientes.contrasenia, clientes.telefono);
+        lista.addData(12);*/
+        
+            Principal.estruct2 = new listaSimple();//cambiar
+            var documento = x.target.files[0];
+            if (!documento) {
+                return;
             }
-            grafoListaDos();
-        }
-        lectura.readAsText(documento);
+            let lectura = new FileReader();
+            lectura.onload = function(x) {
+                let contenido = x.target.result;
+                const object = JSON.parse(contenido);
+                for (const key in object) {
+                    let clientes = object[key];
+                    console.log("----------------------------------------------")
+                    console.log(clientes.dpi  + " " + clientes.nombre_completo  + " " + clientes.nombre_usuario  + " " + clientes.correo  + " " + clientes.contrasenia  + " " + clientes.telefono);
+                    Principal.estruct2.addData(clientes.dpi, clientes.nombre_completo, clientes.nombre_usuario, clientes.correo, clientes.contrasenia, clientes.telefono);
+                }
+                grafoListaDos();
+            }
+            lectura.readAsText(documento);
     }
 
 
@@ -179,6 +223,42 @@ lista.addData(12);*/
     grafo4(){
         grafoTabla();
     }
+
+    ordenAsc(){
+        const aux = document.querySelector("#textoOrdenamientos");
+        aux.innerHTML = "";
+        Principal.estruct1.OrdenAsc(Principal.estruct1.root, "#textoOrdenamientos");
+    }
+    
+    ordenDesc(){
+        const aux = document.querySelector("#textoOrdenamientos");
+        aux.innerHTML = "";
+        Principal.estruct1.OrdenDesc(Principal.estruct1.root, "#textoOrdenamientos");
+    }
+    sinOrden(){
+        const aux = document.querySelector("#textoOrdenamientos");
+        aux.innerHTML = "";
+        Principal.estruct1.SinOrden(Principal.estruct1.root, "#textoOrdenamientos");
+    }
+
+
+    actoresInorden(){
+        const aux = document.querySelector("#textoOrdenamientos");
+        aux.innerHTML = "";
+        Principal.estruct3.ActoresInorden(Principal.estruct3, "#textoOrdenamientos");
+    }
+    
+    actoresPreorden(){
+        const aux = document.querySelector("#textoOrdenamientos");
+        aux.innerHTML = "";
+        Principal.estruct3.ActoresPreorden(Principal.estruct3, "#textoOrdenamientos");
+    }
+    actoresPostorden(){
+        const aux = document.querySelector("#textoOrdenamientos");
+        aux.innerHTML = "";
+        Principal.estruct3.ActoresPostorden(Principal.estruct3, "#textoOrdenamientos");
+    }
+    
 }
 
 function grafoAvlUno(){
@@ -191,6 +271,7 @@ function grafoListaDos(){
     //console.log("Holaaaaaaaaa")
     //Biblio.mat.graficarMatriz(); treeS.graphTree(treeS.root);
     Principal.estruct2.grafo()
+    console.log("------------------" + Principal.estruct2.existe())
 }
 
 function grafoBinarioTres(){
@@ -213,6 +294,15 @@ function descargarImagen() {//////////7VEEEEEEEEEEEER LO DE DESCARGAR IMAGEN CUA
     });
 }
 
+function existencia() {
+    console.log(Principal.estruct2.existe())
+}
+
+
+function oreden(){
+    Principal.estruct1.pOrden(Principal.estruct1.root);
+}
+
 var principal = new Principal();
 document.getElementById("document").addEventListener("change", principal.cargarArchivo1Pelis, false);
 document.getElementById("carga2").addEventListener("change", principal.cargarArchivo2Clientes, false);
@@ -222,3 +312,11 @@ document.getElementById("carga4").addEventListener("change", principal.cargarArc
 //document.getElementById("carga2").addEventListener("change", uno.cargarArchivo2, false);
 //document.getElementById("carga3").addEventListener("change", uno.cargarArchivo3, false);
 //document.getElementById("carga4").addEventListener("change", uno.cargarArchivo, false);
+
+// const uno = document.querySelector("#ascendente")
+
+// uno.addEventListener("click", () =>{
+//     const aux = document.querySelector("#textoOrdenamientos");
+//     aux.innerHTML = "";
+//     Principal.estruct1.OrdenAsc(Principal.estruct1.root, "#textoOrdenamientos");
+// })
